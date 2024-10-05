@@ -28,6 +28,6 @@ class JokerView(TemplateView):
     def get_context_data(self, **kwargs):
         return {
             'title': 'light my way',
-            'id': 'My name is Joker',
+            'id': 'My name is Joker Antiphon',
             'image': '/static/images/Joker.png'
         }
