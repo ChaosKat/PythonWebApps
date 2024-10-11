@@ -1,26 +1,4 @@
-{% extends 'theme.html' %}
-
-
-
-{% block content %}
-
-<h3>Photo Detail</h3>
-
-<p>
-    <img class="photo" src="/{{ photo.file }}" alt="Chapter {{ photo.id }}">
-</p>
-<p>
-    CAPTION:
-    {% if photo.caption %}
-    {{ photo.caption }}
-    {% else %}
-    No caption
-    {% endif%}
-
-</p>
-<p>
-    FILE PATH: {{ photo.file }}
-</p>
-
-
-{% endblock content %}
+<h1>Photo Details</h1>
+<p>Photo Avaliable.</p>
+<img src="{{ photo }}" alt="Starlivht" height="600">
+<p><a href="/" class="btn bg-success text-light m-5">Photo Gallery</a></p>

@@ -1,7 +1,8 @@
 from django.urls import path
-from django.urls.conf import include
-
+from hero.views import GraceView, FirebirdView, JokerView
 
 urlpatterns = [
-    path('', include('hero.urls')),
+    path('',        GraceView.as_view()),
+    path('firebird',        FirebirdView.as_view()),
+    path('joker',        JokerView.as_view()),
 ]

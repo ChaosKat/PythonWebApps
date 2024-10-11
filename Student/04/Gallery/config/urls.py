@@ -1,15 +1,7 @@
-from django.views.generic import RedirectView
 from django.urls import path
-
-from photos.views import PhotoDetailView, PhotoListView
-
+from photos.views import PhotoView, PhotoListView
 
 urlpatterns = [
-
-    # Home
-    path('', RedirectView.as_view(url='photo/')),
-
-    # Photos
-    path('photo/', PhotoListView.as_view()),
-    path('photo/<int:id>', PhotoDetailView.as_view()),
+    path('<str:name>', PhotoView.as_view()),
+    path('', PhotoListView.as_view())
 ]

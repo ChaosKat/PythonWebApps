@@ -1,12 +1,3 @@
-asgiref
-django
-dj-database-url
-django-crispy-forms
+Django
 gunicorn
 psycopg2-binary
-pytz
-markdown
-requests
-pillow
-sqlparse
-whitenoise

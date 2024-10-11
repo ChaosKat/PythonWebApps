@@ -1,38 +1,33 @@
 from django.views.generic import TemplateView
 
+# Create your views here.
 
-class IndexView(TemplateView):
-    template_name = 'heroes.html'
-
-
-class HulkView(TemplateView):
-    template_name = 'hulk.html'
-
-    def get_context_data(self, **kwargs):
-        return {
-            'title': 'Hulk',
-            'body': 'My name is Bruce Banner',
-            'image': '/static/images/hulk.jpg'
-        }
-
-
-class IronManView(TemplateView):
-    template_name = "hero.html"
-
-    def get_context_data(self, **kwargs):
-        return {
-            'title': 'Iron Man',
-            'body': 'My name is Tony Stark, but I am Iron Man',
-            'image': '/static/images/iron_man.jpg'
-        }
-
-
-class BlackWidow(TemplateView):
+class GraceView(TemplateView):
     template_name = 'hero.html'
 
     def get_context_data(self, **kwargs):
         return {
-            'title': 'Black Widow',
-            'body': 'My name is Natasha Romanova',
-            'image': '/static/images/black_widow.jpg'
+            'title': 'im the hero',
+            'id': 'My name is Grace Kamenashi',
+            'image': '/static/images/SL_Grace.png'
+        }
+
+class FirebirdView(TemplateView):
+    template_name = 'hero.html'
+    
+    def get_context_data(self, **kwargs):
+        return {
+            'title': 'HINOTORI',
+            'id': 'My name is Firebird',
+            'image': '/static/images/Firebird.png'
+        }
+
+class JokerView(TemplateView):
+    template_name = 'hero.html'
+    
+    def get_context_data(self, **kwargs):
+        return {
+            'title': 'light my way',
+            'id': 'My name is Joker Antiphon',
+            'image': '/static/images/Joker.png'
         }
