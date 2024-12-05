@@ -1,12 +1,12 @@
 {% extends 'theme.html' %}
 
-
+{% block title %}
+Edit Creator
+{% endblock title %}
 
 {% block content%}
 
 <div class="container m-5">
-
-    <h1 class="text-success">Edit Creator</h1>
 
     <form action="" method="post">
         {% csrf_token %}
