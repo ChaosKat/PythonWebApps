@@ -27,6 +27,7 @@ class Creator(models.Model):
 
 
 class Superhero(models.Model):
+    creator = models.ForeignKey(Creator, on_delete=models.CASCADE, editable=False, null=True)
     name = models.CharField(max_length=200)
     identity = models.CharField(max_length=200)
     description = models.TextField()

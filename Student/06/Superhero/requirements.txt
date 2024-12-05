@@ -2,7 +2,7 @@ asgiref
 django
 dj-database-url
 django-crispy-forms
-django-bootstrap4
+crispy_bootstrap4
 gunicorn
 psycopg2-binary
 pytz

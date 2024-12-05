@@ -3,6 +3,8 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import logout
+from django.shortcuts import redirect
 
 from .models import Superhero, Creator
 
@@ -19,17 +21,21 @@ class HeroDetailView(DetailView):
     model = Superhero
     context_object_name = 'hero'
 
-class HeroCreateView(CreateView):
+class HeroCreateView(LoginRequiredMixin, CreateView):
     template_name = "hero/add.html"
     model = Superhero
     fields = '__all__'
 
-class HeroUpdateView(UpdateView):
+    def form_valid(self, form):
+        form.instance.creator = get_creator(self.request.user)
+        return super().form_valid(form)
+
+class HeroUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "hero/edit.html"
     model = Superhero
     fields = '__all__'
 
-class HeroDeleteView(DeleteView):
+class HeroDeleteView(LoginRequiredMixin, DeleteView):
     model = Superhero
     template_name = 'hero/delete.html'
     success_url = reverse_lazy('hero_list')
@@ -50,7 +56,6 @@ class CreatorHomeView(RedirectView):
 class CreatorDetailView(DetailView):
     model = Creator
     template_name = 'creator/detail.html'
-    context_object_name = 'creator'
 
     def get_context_data(self, **kwargs):
         kwargs = super().get_context_data(**kwargs)
@@ -68,8 +73,8 @@ class CreatorListView(ListView):
 
 class CreatorCreateView(CreateView):
     form_class = UserCreationForm
-    success_url = reverse_lazy('creator_list')
-    template_name = 'creator/add.html'
+    success_url = reverse_lazy('login')
+    template_name = 'registration/account_add.html'
 
 class CreatorDeleteView(DeleteView):
     model = Creator
@@ -86,3 +91,7 @@ class CreatorUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'creator/edit.html'
     model = Creator
     fields = '__all__'
+
+def logout_user(request):
+    logout(request)
+    return redirect('hero_list')

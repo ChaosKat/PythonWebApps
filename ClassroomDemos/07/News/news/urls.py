@@ -8,7 +8,9 @@ from .views_author import AuthorDetailView, AuthorHomeView, AuthorListView, Auth
 from .views_article import ArticleDeleteView, ArticleDetailView, ArticleListView, ArticleCreateView, ArticleUpdateView
 
 urlpatterns = [
-
+    # Admin
+    path('admin/', admin.site.urls),
+    
     # Accounts
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/<int:pk>/',          UserUpdateView.as_view(),  name='user_edit'),

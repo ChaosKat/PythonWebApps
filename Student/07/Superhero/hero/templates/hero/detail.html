@@ -24,6 +24,10 @@ Hero details
                     <td><a href="/hero/{{ hero.pk }}/">{{ object.name }}</a></td>
                 </tr>
                 <tr>
+                    <td>Creator</td>
+                    <td><a href="/creator/{{ hero.creator.pk }}">{{ object.creator }}</a></td>
+                </tr>
+                <tr>
                     <td>Identity</td>
                     <td>{{ object.identity }}</td>
                 </tr>
