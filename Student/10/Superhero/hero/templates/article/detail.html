@@ -1,0 +1,44 @@
+{% extends 'theme.html' %}
+
+
+{% block title %}
+Article Details
+{% endblock title %}
+
+
+{% block content %}
+
+<div class="row">
+
+    <div class="card col-lg">
+
+        <div class="card-header person bg-success">
+            {{ object.title }}
+        </div>
+        <div class="card-body">
+
+
+            <table class="table">
+                <tr>
+                    <td>Creator</td>
+                    <td><a href="/creator/{{ article.creator.pk }}">{{ object.creator }}</a></td>
+                </tr>
+                <tr>
+                    <td>Publishing date</td>
+                    <td>{{ object.publishdate }}</td>
+                </tr>
+                <tr>
+                    <td>Article</td>
+                </tr>
+                <tr class="bg-light">
+                    <td>{{ object.body }}</td>
+                </tr>
+            </table>
+            <a href="/article/{{ object.pk }}/" class="btn btn-success m-5">Edit Article</a>
+            <a href="/article/{{ object.pk }}/delete" class="btn btn-success m-5">Delete Article</a>
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}
